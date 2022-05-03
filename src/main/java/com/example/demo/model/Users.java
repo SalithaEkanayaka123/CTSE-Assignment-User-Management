@@ -4,7 +4,7 @@ import org.springframework.lang.NonNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Users", uniqueConstraints=@UniqueConstraint(columnNames="username"))
+@Table(name = "users", uniqueConstraints=@UniqueConstraint(columnNames="username"))
 public class Users {
 
     @Id
