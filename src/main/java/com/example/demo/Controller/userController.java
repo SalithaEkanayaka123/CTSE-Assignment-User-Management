@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Repository.loginRepository;
 import com.example.demo.Repository.userRepository;
 import com.example.demo.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,16 @@ public class userController {
     @Autowired
     private userRepository userRepository;
 
+    @Autowired
+    private loginRepository loginUserRepository;
+
     @GetMapping("/getUsers")
     public List<Users> getAllEmployees() {
+        return userRepository.findAll();
+    }
+
+    @GetMapping("/check1")
+    public String Check1() {
         return userRepository.findAll();
     }
 
@@ -65,6 +74,20 @@ public class userController {
     public ResponseEntity<?> deleteUser(@PathVariable("id") int id){
         userRepository.deleteById(id);
         return new ResponseEntity<>("delete successful", HttpStatus.OK);
+    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<?> validateUser (@RequestBody Users user){
+        String value = null;
+        try {
+            value = loginUserRepository.validateUser(user);
+            return new ResponseEntity<>(value , HttpStatus.OK);
+        } catch (java.lang.NullPointerException e){
+            return new ResponseEntity<>(value, HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage() , HttpStatus.OK);
+        }
     }
 
 
