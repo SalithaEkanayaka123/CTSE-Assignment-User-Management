@@ -20,6 +20,9 @@ public class Users {
     @Column(name = "age")
     private int age;
 
+    @Column(name = "address")
+    private int address;
+
     @NonNull
     @Column(name = "username")
     private String username;
