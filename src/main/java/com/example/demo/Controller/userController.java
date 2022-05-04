@@ -31,7 +31,7 @@ public class userController {
 
     @GetMapping("/check1")
     public String Check1() {
-        return userRepository.findAll();
+        return "checking dockarization works";
     }
 
 
