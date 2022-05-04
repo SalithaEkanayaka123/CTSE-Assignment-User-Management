@@ -59,6 +59,7 @@ public class userController {
             updateUser.setName(user.getName() != null ? user.getName() : updateUser.getName());
             updateUser.setEmail(user.getEmail() != null ? user.getEmail() : updateUser.getEmail());
             updateUser.setAge(user.getAge() != 0 ? user.getAge() : updateUser.getAge());
+            updateUser.setAddress(user.getAddress() != null ? user.getAddress() : updateUser.getAddress());
             updateUser.setUsername(user.getUsername() != null ? user.getUsername() : updateUser.getUsername());
             updateUser.setPassword(user.getPassword() != null ? user.getPassword() : updateUser.getPassword());
             Users value = userRepository.save(updateUser);

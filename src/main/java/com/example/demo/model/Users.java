@@ -21,7 +21,7 @@ public class Users {
     private int age;
 
     @Column(name = "address")
-    private int address;
+    private String address;
 
     @NonNull
     @Column(name = "username")
@@ -79,5 +79,13 @@ public class Users {
 
     public void setPassword(@NonNull String password) {
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
