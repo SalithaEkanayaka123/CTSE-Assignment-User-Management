@@ -7,5 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Repository
 public interface loginRepository {
+
+
     String validateUser (@RequestBody Users user);
 }

@@ -22,14 +22,14 @@ public class userController {
     private userRepository userRepository;
 
     @Autowired
-    private loginRepository loginUserRepository;
+    loginRepository loginRepository;
 
     @GetMapping("/getUsers")
     public List<Users> getAllEmployees() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/check1")
+    @GetMapping("/check2")
     public String Check1() {
         return "checking dockarization works";
     }
@@ -80,7 +80,7 @@ public class userController {
     public ResponseEntity<?> validateUser (@RequestBody Users user){
         String value = null;
         try {
-            value = loginUserRepository.validateUser(user);
+            value = loginRepository.validateUser(user);
             return new ResponseEntity<>(value , HttpStatus.OK);
         } catch (java.lang.NullPointerException e){
             return new ResponseEntity<>(value, HttpStatus.OK);
