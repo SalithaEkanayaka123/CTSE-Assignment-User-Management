@@ -30,7 +30,7 @@ jobs:
         run: docker login --username '${{secrets.DOCKER_LOGIN}}' --password '${{secrets.DOCKER_PASSWORD}}'
 
       - name: push docker image
-        run: docker push '${{secrets.DOCKER_LOGIN}}'/ctse-assignment-microservices-user_management:'${{github.sha}}'
+        run: docker push '${{secrets.DOCKER_LOGIN}}'/ctse-assignment-user-management:'${{github.sha}}'
 
       - name: Azure Kubernetes set context
         uses: Azure/aks-set-context@v1
