@@ -35,6 +35,7 @@ public class userController {
     }
 
 
+
     @PostMapping("/useradd")
     public ResponseEntity<?> createUser(@RequestBody Users user) {
         try {
