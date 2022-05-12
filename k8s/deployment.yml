@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: githubactions-aks-demo
+spec:
+  selector:
+    matchLabels:
+      app: ctse-assignment-microservices
+  template:
+    metadata:
+      labels:
+        app: CTSE-Assignment-User-Management
+    spec:
+      containers:
+        - name: CTSE-Assignment-User-Management
+          image: salithaekanayaka/ctse-assignment-microservices-user_management
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
