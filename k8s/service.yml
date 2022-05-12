@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: CTSE-Assignment-User-Management
+  name: ctse-assignment-user-management
 spec:
   selector:
-    app: CTSE-Assignment-User-Management
+    app: ctse-assignment-user-management
   type: LoadBalancer
   ports:
     - port: 8080
