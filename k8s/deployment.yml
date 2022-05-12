@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: ctse-assignment-microservices
+      app: ctse-assignment-user-management
   template:
     metadata:
       labels:
-        app: CTSE-Assignment-User-Management
+        app: ctse-assignment-user-management
     spec:
       containers:
-        - name: CTSE-Assignment-User-Management
+        - name: ctse-assignment-user-management
           image: salithaekanayaka/ctse-assignment-microservices-user_management
           resources:
             limits:
