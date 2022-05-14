@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: ctse-assignment-user-management
-          image: salithaekanayaka/ctse-assignment-microservices-user_management
+          image: salithaekanayaka/ctse-assignment-user-management
           resources:
             limits:
               memory: "512Mi"
