@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -61,7 +62,6 @@ public class userController {
             updateUser.setEmail(user.getEmail() != null ? user.getEmail() : updateUser.getEmail());
             updateUser.setAge(user.getAge() != 0 ? user.getAge() : updateUser.getAge());
             updateUser.setAddress(user.getAddress() != null ? user.getAddress() : updateUser.getAddress());
-            updateUser.setUsername(user.getUsername() != null ? user.getUsername() : updateUser.getUsername());
             updateUser.setPassword(user.getPassword() != null ? user.getPassword() : updateUser.getPassword());
             Users value = userRepository.save(updateUser);
             //System.out.println("hi " + updateUser);
@@ -82,10 +82,13 @@ public class userController {
     public ResponseEntity<?> validateUser (@RequestBody Users user){
         String value = null;
         try {
+            System.out.println("user is " + user.getPassword());
             value = loginRepository.validateUser(user);
-            return new ResponseEntity<>(value , HttpStatus.OK);
-        } catch (java.lang.NullPointerException e){
-            return new ResponseEntity<>(value, HttpStatus.OK);
+            if (Objects.equals(value, user.getUsername())) {
+                return new ResponseEntity<>(value, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("invalid login", HttpStatus.OK);
+            }
         }
         catch (Exception e) {
             return new ResponseEntity<>(e.getMessage() , HttpStatus.OK);

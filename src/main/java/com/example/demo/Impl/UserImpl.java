@@ -15,11 +15,12 @@ public class UserImpl implements loginRepository {
 
     @Override
     public String validateUser(Users user) {
-        String sql = "SELECT type FROM users WHERE username=? AND password=?";
+        String sql = "SELECT username FROM users WHERE username=? AND password=?";
         try {
-            String type = jdbcTemplate.queryForObject(sql, new Object[] {
+            String username = jdbcTemplate.queryForObject(sql, new Object[] {
                     user.getUsername(), user.getPassword() }, String.class);
-            return type;
+            System.out.println(username);
+            return username;
         } catch (Exception e) {
             return null;
         }
