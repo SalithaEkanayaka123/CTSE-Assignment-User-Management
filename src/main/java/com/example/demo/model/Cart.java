@@ -4,7 +4,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cartItem")
+@Table(name = "cart_item")
 public class Cart {
 
 
@@ -12,16 +12,16 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "cartNo")
+    @Column(name = "cart_no")
     private String cartNo;
 
-    @Column(name = "userID")
+    @Column(name = "user_id")
     private String userID;
 
-    @Column(name = "itemID")
+    @Column(name = "item_id")
     private String itemID;
 
-    @Column(name = "item count")
+    @Column(name = "item_count")
     private int item_count;
 
     public int getId() {
