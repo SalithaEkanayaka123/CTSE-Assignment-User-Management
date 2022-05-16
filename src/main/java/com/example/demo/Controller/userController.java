@@ -84,14 +84,16 @@ public class userController {
         try {
             System.out.println("user is " + user.getPassword());
             value = loginRepository.validateUser(user);
-            if (Objects.equals(value, user.getUsername())) {
-                return new ResponseEntity<>(value, HttpStatus.OK);
+            System.out.println(value);
+            if (Objects.equals(value, null)) {
+                return new ResponseEntity<>("invalid login", HttpStatus.NOT_FOUND);
             } else {
-                return new ResponseEntity<>("invalid login", HttpStatus.OK);
+                Optional<Users> userObject = userRepository.findById(Integer.parseInt(value));
+                return new ResponseEntity<>(userObject, HttpStatus.OK);
             }
         }
         catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage() , HttpStatus.OK);
+            return new ResponseEntity<>(e.getMessage() , HttpStatus.FORBIDDEN);
         }
     }
 
