@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-@CrossOrigin(origins ="*", allowedHeaders ="*")
+@CrossOrigin("*")
 @RequestMapping("/api/v1")
 @RestController
 public class userController {
