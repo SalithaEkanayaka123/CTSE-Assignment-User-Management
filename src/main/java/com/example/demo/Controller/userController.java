@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-
+@CrossOrigin(origins ="*", allowedHeaders ="*")
 @RequestMapping("/api/v1")
 @RestController
 public class userController {
@@ -36,8 +36,6 @@ public class userController {
         return "checking dockarization works";
     }
 
-
-    @CrossOrigin(origins ="*", allowedHeaders ="*")
     @PostMapping("/useradd")
     public ResponseEntity<?> createUser(@RequestBody Users user) {
         try {
@@ -79,7 +77,6 @@ public class userController {
         return new ResponseEntity<>("delete successful", HttpStatus.OK);
     }
 
-    @CrossOrigin(origins ="*", allowedHeaders ="*")
     @PostMapping("/validate")
     public ResponseEntity<?> validateUser (@RequestBody Users user){
         String value = null;
