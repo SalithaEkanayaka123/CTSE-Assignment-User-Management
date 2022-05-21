@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-@CrossOrigin("*")
+@CrossOrigin(origins ="*")
 @RequestMapping("/api/v1")
 @RestController
 public class userController {
@@ -76,6 +76,7 @@ public class userController {
         userRepository.deleteById(id);
         return new ResponseEntity<>("delete successful", HttpStatus.OK);
     }
+
 
     @PostMapping("/validate")
     public ResponseEntity<?> validateUser (@RequestBody Users user){
