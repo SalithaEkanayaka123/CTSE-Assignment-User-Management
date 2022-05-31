@@ -14,7 +14,7 @@ This project is a mocroservice implmented from Spring boot. This is done as a gr
 
 ## Docker Image
 
-![GitHub Logo](Picture3.jpg)
+![GitHub Logo](picture3.jpg)
 
 
 
